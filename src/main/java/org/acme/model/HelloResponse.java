@@ -11,16 +11,27 @@ import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.NONE)
-@XmlType(name = "Response", propOrder = { "response" })
+@XmlType(name = "Response", propOrder = { "response", "name", "dutchResponse", "frenchResponse" })
 public class HelloResponse {
 
 	private String greeting;
 
+	@XmlElement(name = "name")
 	private String name;
 
 	@XmlElement(name = "response")
 	public String getResponse() {
 		return greeting + " " + name;
+	}
+
+	@XmlElement(name = "frenchResponse")
+	public String getOtherResponseSecond() {
+		return "Salut " + name;
+	}
+
+	@XmlElement(name = "dutchResponse")
+	public String getOtherResponseFirst() {
+		return "Hallo " + name;
 	}
 
 	/**
